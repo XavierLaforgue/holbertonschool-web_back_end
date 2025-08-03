@@ -11,4 +11,4 @@ def floor(n: float) -> int:
     :return: floor of n
     :rtype: int
     """
-    return floor(n)
+    return int(n)
