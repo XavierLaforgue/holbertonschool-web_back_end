@@ -1,4 +1,4 @@
-#!7usr/bin/env python3
+#!/usr/bin/env python3
 """Contains annotated function with iterables."""
 from typing import Iterable, Tuple, Sequence, List
 
