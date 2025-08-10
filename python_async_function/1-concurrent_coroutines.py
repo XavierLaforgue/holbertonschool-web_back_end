@@ -6,9 +6,11 @@ wait_random = __import__('0-basic_async_syntax').wait_random
 
 async def wait_n(n: int, max_delay: int) -> list[float]:
     """Wait concurrently and return wait duration list in seconds."""
-    tasks: list[asyncio.Task] = [asyncio.create_task(wait_random(max_delay)) for _ in range(n)]
+    tasks: list[asyncio.Task]
+    tasks = [asyncio.create_task(wait_random(max_delay)) for _ in range(n)]
     results: list[float] = []
+    completed: asyncio.Future[float]
     for completed in asyncio.as_completed(tasks):
-        result = await completed
+        result: float = await completed
         results.append(result)
     return results
