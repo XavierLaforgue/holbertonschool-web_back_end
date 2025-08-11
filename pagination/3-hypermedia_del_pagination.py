@@ -39,8 +39,7 @@ class Server:
     def get_hyper_index(self,
                         index: int = None,
                         page_size: int = 10) -> Dict:
-        """
-        Return indexed hypermedia .
+        """Return indexed hypermedia .
 
         :param index: current start index of the page
         :type index: int | None
