@@ -49,12 +49,10 @@ class Server:
         dataset: Dict[int, List] = self.indexed_dataset()
         start: int
         if index is None:
-            start = next(iter(dataset))
-        else:
-            start = index
+            index = next(iter(dataset))
         assert (isinstance(index, int) and index >= 0
                 and index < max(dataset.keys()))
-
+        start = index
         count: int = 0
         data: List[List] = []
         next_start: int | None = None
