@@ -51,9 +51,10 @@ class Server:
         if index is None:
             start = next(iter(dataset))
         else:
-            assert (isinstance(index, int) and index > min(dataset.keys())
-                    and index < max(dataset.keys()))
             start = index
+        assert (isinstance(index, int) and index >= 0
+                and index < max(dataset.keys()))
+
         count: int = 0
         data: List[List] = []
         next_start: int | None = None
