@@ -39,7 +39,7 @@ class Server:
     def get_hyper_index(self,
                         index: int = None,
                         page_size: int = 10) -> Dict:
-        """Return indexed hypermedia .
+        """Return indexed hypermedia.
 
         :param index: current start index of the page
         :type index: int | None
@@ -53,7 +53,7 @@ class Server:
         if index is None:
             start = next(iter(dataset))
         else:
-            assert (index > min(dataset.keys())
+            assert (isinstance(index, int) and index > min(dataset.keys())
                     and index < max(dataset.keys()))
             start = index
         count: int = 0
