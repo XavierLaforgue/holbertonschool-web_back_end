@@ -12,7 +12,7 @@ class Server:
     DATA_FILE = "Popular_Baby_Names.csv"
 
     def __init__(self):
-        """Initialiaze Server."""
+        """Initialize Server."""
         self.__dataset = None
         self.__indexed_dataset = None
 
@@ -37,7 +37,7 @@ class Server:
         return self.__indexed_dataset
 
     def get_hyper_index(self,
-                        index: int | None = None,
+                        index: int = None,
                         page_size: int = 10) -> Dict:
         """
         Return indexed hypermedia .
