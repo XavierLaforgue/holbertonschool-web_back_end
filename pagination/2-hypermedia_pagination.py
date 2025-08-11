@@ -3,7 +3,7 @@
 
 import csv
 import math
-from typing import List, Tuple, TypedDict
+from typing import List, Tuple, TypedDict, Dict
 
 
 def index_range(page: int, page_size: int) -> Tuple[int, int]:
@@ -59,17 +59,17 @@ class Server:
         cached_data: List[List] = self.dataset()
         return cached_data[list_bounds[0]:list_bounds[1]]
 
-    class HyperDict(TypedDict):
-        """Return type of get_hyper."""
+    # class HyperDict(TypedDict):
+    #     """Return type of get_hyper."""
 
-        page_size: int
-        page: int
-        data: List[List]
-        next_page: int | None
-        prev_page: int | None
-        total_pages: int
+    #     page_size: int
+    #     page: int
+    #     data: List[List]
+    #     next_page: int | None
+    #     prev_page: int | None
+    #     total_pages: int
 
-    def get_hyper(self, page: int = 1, page_size: int = 10) -> HyperDict:
+    def get_hyper(self, page: int = 1, page_size: int = 10) -> Dict:
         """
         Return current page as hypermedia.
 
@@ -78,7 +78,7 @@ class Server:
         :param page_size: maximum size of pages
         :type page_size: int
         :return: hypermedia for current page
-        :rtype: dict[Any, Any]
+        :rtype: HyperDict
         """
         page_data: List[List] = self.get_page(page, page_size)
         real_page_size: int = len(page_data)
