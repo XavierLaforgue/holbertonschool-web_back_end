@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 """Contains a function that retrieves a list of documents in a mongoDB."""
-from pymongo.collection import Collection
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from pymongo.collection import Collection
 
 
-def list_all(mongo_collection: Collection) -> list:
+def list_all(mongo_collection: "Collection") -> list:
     """
     List all documents in given collection.
 
