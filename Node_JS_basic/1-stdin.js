@@ -6,7 +6,7 @@ const readInput = createInterface({
   output: process.stdout,
 });
 
-readInput.question('Welcome to Holberton School, what is your name?',
+readInput.question('Welcome to Holberton School, what is your name?\n',
   (answer) => {
     console.log(`Your name is: ${answer}`);
     readInput.close();
