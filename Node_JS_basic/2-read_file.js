@@ -14,7 +14,7 @@ function countStudents(aPath) {
   let numberStudents = 0;
   const studentsFields = new Map();
   file.on('line', (line) => {
-    if (isFirstLine || line.trim().length === 0) {
+    if (isFirstLine || line.trim() === '') {
       isFirstLine = false;
       return;
     }
