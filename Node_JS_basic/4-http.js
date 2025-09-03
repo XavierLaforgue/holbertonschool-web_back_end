@@ -1,11 +1,11 @@
-const app = require('node:http');
+const http = require('node:http');
 
 const port = 1245;
 
-const server = app.createServer((_, res) => {
-  res.write('Hello Holberton School!');
+const app = http.createServer((_, res) => {
+  res.end('Hello Holberton School!');
 });
 
-server.listen(port);
+app.listen(port);
 
 module.exports = app;
