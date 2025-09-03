@@ -6,6 +6,7 @@ function countStudents(aPath) {
   try {
     file = readline.createInterface({
       input: fs.createReadStream(aPath, { start: 1, encoding: 'utf8' }),
+      terminal: false,
     });
   } catch (err) {
     throw new Error('Cannot load the database');
