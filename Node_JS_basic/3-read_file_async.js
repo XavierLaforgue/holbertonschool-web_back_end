@@ -1,7 +1,12 @@
 const fsPromises = require('node:fs/promises');
 
 function countStudents(aPath) {
-  const file = fsPromises.readFile(aPath, { encoding: 'utf8' });
+  let file;
+  try {
+    file = fsPromises.readFile(aPath, { encoding: 'utf8' });
+  } catch (error) {
+    throw new Error('Cannot load the database');
+  }
   file.then((fileResponse) => {
     const linesArray = fileResponse.split('\n');
     const studentsArray = linesArray
