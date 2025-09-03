@@ -2,9 +2,14 @@ const fs = require('fs');
 const readline = require('node:readline');
 
 function countStudents(aPath) {
-  const file = readline.createInterface({
-    input: fs.createReadStream(aPath, { start: 1 }),
-  });
+  let file;
+  try {
+    file = readline.createInterface({
+      input: fs.createReadStream(aPath, { start: 1 }),
+    });
+  } catch (err) {
+    throw new Error('Cannot load the database');
+  }
   let isFirstLine = true;
   let numberStudents = 0;
   const studentsFields = new Map();
