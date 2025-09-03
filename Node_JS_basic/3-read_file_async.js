@@ -27,7 +27,7 @@ function countStudents(aPath) {
   file.on('close', () => {
     console.log(`Number of students: ${numberStudents}`);
     for (const [field, students] of studentsFields.entries()) {
-      console.log(`Number of students in ${field}: ${students.length}. List: ${students.join(', ')}`);
+      console.log(`Number of students in ${field}: ${students.length}. ${students.join(', ')}`);
     }
   });
 }
