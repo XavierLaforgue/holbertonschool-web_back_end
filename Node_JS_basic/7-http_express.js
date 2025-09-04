@@ -41,15 +41,14 @@ app.get('/', (req, res) => {
 
 app.get('/students', (req, res) => {
   res.setHeader('Content-Type', 'text/plain');
+  res.status(200).write('This is the list of our students\n');
   returnCountStudents(process.argv[2])
     .then((string) => {
-      res.status(200).write('This is the list of our students\n');
       res.status(200).write(string);
       res.end();
     })
     .catch(() => {
-      res.status(500).write('Cannot load the database');
-      res.end();
+      res.end('Cannot load the database');
     });
 });
 
