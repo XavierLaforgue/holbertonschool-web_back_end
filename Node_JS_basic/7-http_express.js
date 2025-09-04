@@ -54,7 +54,7 @@ app.get('/students', (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Listening app on port ${port}`);
+  // console.log(`Listening app on port ${port}`);
 });
 
 module.exports = app;
