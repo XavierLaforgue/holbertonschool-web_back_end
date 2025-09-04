@@ -49,6 +49,7 @@ app.get('/students', (req, res) => {
     })
     .catch(() => {
       res.status(500).write('Cannot load the database');
+      res.end();
     });
 });
 
