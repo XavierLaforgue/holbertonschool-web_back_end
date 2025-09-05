@@ -10,7 +10,7 @@ export default class StudentsController {
         }
         response.status(200).send(output.join('\n'));
       })
-      .catch((err) => response.status(500).send(err));
+      .catch((err) => response.status(500).send(err.message));
   }
 
   static getAllStudentsByMajor(request, response) {
@@ -21,7 +21,7 @@ export default class StudentsController {
         .then((readData) => {
           response.status(200).send(`List: ${readData[request.params.major].join(', ')}`);
         })
-        .catch((err) => response.status(500).send(err));
+        .catch((err) => response.status(500).send(err.message));
     }
   }
 }
